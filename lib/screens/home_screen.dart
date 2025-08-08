@@ -1,10 +1,12 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import '../models/customer.dart';
 import '../models/order.dart';
 import '../models/bill.dart';
 import '../widgets/metric_card.dart';
+import '../services/auth_service.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -15,11 +17,13 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Customer> customers = [];
   List<OrderModel> orders = [];
   List<Bill> bills = [];
+  String role = 'unknown';
 
   @override
   void initState() {
     super.initState();
     _loadMock();
+    _loadRole();
   }
 
   Future<void> _loadMock() async {
@@ -33,11 +37,24 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  Future<void> _loadRole() async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) {
+      setState(() { role = 'guest'; });
+      return;
+    }
+    final auth = AuthService();
+    final r = await auth.getUserRole(user.uid);
+    setState(() { role = r; });
+  }
+
   @override
   Widget build(BuildContext context) {
     final totalCustomers = customers.length;
     final activeOrders = orders.where((o) => o.active).length;
     final revenue = bills.fold(0.0, (p, b) => p + b.total);
+
+    final user = FirebaseAuth.instance.currentUser;
 
     return Scaffold(
       appBar: AppBar(
@@ -47,8 +64,12 @@ class _HomeScreenState extends State<HomeScreen> {
           Text('Radhika Mineral Water')
         ]),
         actions: [
+          if (user != null) Padding(
+            padding: const EdgeInsets.symmetric(horizontal:8.0),
+            child: Center(child: Text('${user.email} (${role.toUpperCase()})', style: TextStyle(fontSize:12))),
+          ),
           IconButton(onPressed: (){}, icon: Icon(Icons.notifications)),
-          IconButton(onPressed: (){}, icon: Icon(Icons.settings)),
+          IconButton(onPressed: () async { await AuthService().signOut(); }, icon: Icon(Icons.logout)),
         ],
       ),
       body: Padding(

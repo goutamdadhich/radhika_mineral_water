@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'screens/home_screen.dart';
+import 'screens/auth_gate.dart';
 
 class RadhikaApp extends StatelessWidget {
   @override
@@ -12,7 +12,7 @@ class RadhikaApp extends StatelessWidget {
           primarySwatch: Colors.teal,
           scaffoldBackgroundColor: Colors.white,
         ),
-        home: HomeScreen(),
+        home: AuthGate(),
       ),
     );
   }
