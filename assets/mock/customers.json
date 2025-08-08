@@ -1,0 +1,26 @@
+[
+  {
+    "id": "c001",
+    "name": "Ramesh Kumar",
+    "address": "12 Sector 5, Jaipur",
+    "phone": "+91-9876543210",
+    "email": "ramesh.k@example.com",
+    "ratePerCan": 25
+  },
+  {
+    "id": "c002",
+    "name": "Suman Devi",
+    "address": "14B MG Road, Indore",
+    "phone": "+91-9812345670",
+    "email": "suman.d@example.com",
+    "ratePerCan": 22
+  },
+  {
+    "id": "c003",
+    "name": "Amit Verma",
+    "address": "3 Shivaji Nagar, Pune",
+    "phone": "+91-9765432100",
+    "email": "amit.v@example.com",
+    "ratePerCan": 24
+  }
+]

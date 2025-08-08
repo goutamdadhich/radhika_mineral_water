@@ -1,0 +1,18 @@
+[
+  {
+    "id": "b2025-08-001",
+    "customerId": "c001",
+    "year": 2025,
+    "month": 8,
+    "seq": 1,
+    "billNo": "RMW-2025-08-001",
+    "total": 150,
+    "items": [
+      {
+        "desc": "August supply",
+        "qty": 6,
+        "rate": 25
+      }
+    ]
+  }
+]

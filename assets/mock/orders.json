@@ -1,0 +1,40 @@
+[
+  {
+    "id": "o001",
+    "customerId": "c001",
+    "schedule": "daily",
+    "numCans": 2,
+    "days": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri",
+      "sat",
+      "sun"
+    ],
+    "active": true
+  },
+  {
+    "id": "o002",
+    "customerId": "c002",
+    "schedule": "alternate",
+    "numCans": 1,
+    "days": [
+      "mon",
+      "wed",
+      "fri"
+    ],
+    "active": true
+  },
+  {
+    "id": "o003",
+    "customerId": "c003",
+    "schedule": "weekly",
+    "numCans": 3,
+    "days": [
+      "sat"
+    ],
+    "active": true
+  }
+]
