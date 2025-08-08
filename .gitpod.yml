@@ -1,0 +1,14 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - init: |
+      flutter pub get
+  - command: |
+      gp sync-await firebase-setup
+      flutter run -d web-server --web-port=8080 --web-renderer html
+
+ports:
+  - port: 8080
+    onOpen: open-preview
+    visibility: public
