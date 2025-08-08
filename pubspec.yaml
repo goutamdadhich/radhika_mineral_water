@@ -1,0 +1,31 @@
+name: radhika_mineral_water
+description: Radhika Mineral Water - Delivery & Billing Flutter App (starter)
+publish_to: 'none'
+version: 0.1.0+1
+environment:
+  sdk: ">=2.18.0 <3.0.0"
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  flutter_riverpod: ^2.0.0
+  firebase_core: ^2.6.0
+  firebase_auth: ^4.2.0
+  cloud_firestore: ^4.4.0
+  firebase_functions: ^4.0.0
+  firebase_messaging: ^14.2.0
+  shared_preferences: ^2.1.0
+  path_provider: ^2.0.11
+  pdf: ^3.9.0
+  printing: ^5.9.0
+  intl: ^0.18.0
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/mock/customers.json
+    - assets/mock/orders.json
+    - assets/mock/bills.json
+    - assets/logo.png
